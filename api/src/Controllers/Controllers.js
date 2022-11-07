@@ -8,7 +8,7 @@ const getApi = async () => {
         return {
             id: dog.id,
             name: dog.name,
-            temperament: dog.temperament,
+            temperament: dog.temperament ? dog.temperament : 'no info',
             weight_min: parseInt(dog.weight.imperial.split('-')[0]),
             weight_max: parseInt(dog.weight.imperial.split('-')[1]),
             height_min: parseInt(dog.height.metric.split('-')[0]),
@@ -39,7 +39,7 @@ const getDB = async () => {
             life_span: dog.life_span,
             image: dog.image,
             height: `${dog.height_min} - ${dog.height_max}`,
-            temperament: dog.temperament.map(e => { return e.name }).join('.')
+            temperament: dog.temperament ? dog.temperament.map(e => { return e.name }).join('.') : 'no info'
         }
     })
     return dogMap;
