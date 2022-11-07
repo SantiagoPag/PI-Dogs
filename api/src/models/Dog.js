@@ -30,7 +30,7 @@ module.exports = (sequelize) => {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    lifeExpectancy: {
+    life_span: {
       type: DataTypes.INTEGER,
     },
     image: {
