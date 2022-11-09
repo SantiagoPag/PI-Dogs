@@ -37,6 +37,11 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       defaultValue: 'https://pbs.twimg.com/media/D6mH_epWwAAl8Yn.jpg',
     },
+    createdInDb: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: true,
+    },
   }, { timestamps: false }
   );
 };
