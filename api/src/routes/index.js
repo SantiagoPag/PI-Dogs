@@ -78,5 +78,52 @@ router.get('/temperaments', async (req, res) => {
     }
 });
 
+router.post('/dogs', async (req, res) => {
+    const {
+        name,
+        height_min,
+        height_max,
+        weight_min,
+        weight_max,
+        life_span,
+        createdInDb,
+        temperament,
+        image
+    } = req.body;
+
+    /* const dogCheck = await Dog.findAll({
+        where: { name: name }
+    });
+
+    if (dogCheck.length) {
+        return res.status(404).send('The dog already exist')
+    } */
+    if (name && height_min && height_max && weight_min && weight_max && temperament && image) {
+        let createDog = await Dog.create({
+            name: name,
+            height_min: parseInt(height_min),
+            height_max: parseInt(height_max),
+            weight_min: parseInt(weight_min),
+            weight_max: parseInt(weight_max),
+            life_span: life_span,
+            createdInDb: createdInDb,
+            image: image || 'https://pbs.twimg.com/media/D6mH_epWwAAl8Yn.jpg'
+        });
+
+        temperament.map(async e => {
+            const findTemp = await Temperament.findAll({
+                where: { name: e }
+            });
+            createDog.addTemperament(findTemp);
+        })
+        res.status(200).send(createDog);
+        /* let dbTemp = Temperament.findAll({
+            where: { name: temperament }
+        }); */
+    } else {
+        res.status(404).send('Data missing')
+    };
+});
+
 
 module.exports = router;
