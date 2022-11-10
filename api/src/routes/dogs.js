@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { getAllDogs } = require('../Controllers/Controllers');
+const { getAllDogs } = require('../controllers/Controllers');
 const { Dog } = require('../db');
 const router = Router();
 
@@ -73,7 +73,7 @@ router.post('/', async (req, res) => {
     if (dogCheck.length) {
         return res.status(404).send('The dog already exist')
     }  */
-    if (name && height_min && height_max && weight_min && weight_max && temperament && image) {
+    if (name && height_min && height_max && weight_min && weight_max && life_span && temperament && image) {
         let createDog = await Dog.create({
             name: name,
             height_min: parseInt(height_min),
