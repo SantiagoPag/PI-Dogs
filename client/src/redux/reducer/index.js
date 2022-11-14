@@ -99,7 +99,7 @@ function rootReducer(state = initialState, action) {
 
             return {
                 ...state,
-                dogs: actions.payload === 'all' ? state.allDogs2 : filterCreated
+                dogs: action.payload === 'all' ? state.allDogs2 : filterCreated
             };
 
         case CLEAR_DETAIL:

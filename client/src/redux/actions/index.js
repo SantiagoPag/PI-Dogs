@@ -60,7 +60,7 @@ export function getTemperaments() {
     };
 };
 
-export function postDog() {
+export function postDog(data) {
     try {
         return async function () {
             const post = await axios.post('http://localhost:3001/dogs', data)
