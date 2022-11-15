@@ -85,16 +85,20 @@ router.post('/', async (req, res) => {
             image: image || 'https://pbs.twimg.com/media/D6mH_epWwAAl8Yn.jpg'
         });
 
-        temperament.map(async e => {
-            const findTemp = await Temperament.findAll({
-                where: { name: e }
-            });
-            createDog.addTemperament(findTemp);
-        })
+        let dogDb = await Dog.findAll({where: {name:name}})
+
+        if(!dogDb.length) {
+            createDog()
+
+            let temperamentDb = await Temperament.findAll({
+                where: {name: temperament}
+            })         
+
+            await createDog.addTemperament(temperamentDb)
+        }
+
         res.status(200).send(createDog);
-        /* let dbTemp = Temperament.findAll({
-            where: { name: temperament }
-        }); */
+        
     } else {
         res.status(404).send('Data missing')
     };

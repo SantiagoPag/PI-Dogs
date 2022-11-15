@@ -96,10 +96,10 @@ function rootReducer(state = initialState, action) {
         case FILTER_CREATED_DOG:
             const allDogs2 = state.allDogs;
             const filterCreated = action.payload === 'created' ? allDogs2.filter(e => e.createdInDb) : allDogs2.filter(e => !e.createdInDb);
-
+            
             return {
                 ...state,
-                dogs: action.payload === 'all' ? state.allDogs2 : filterCreated
+                dogs: action.payload === 'all' ? allDogs2 : filterCreated    
             };
 
         case CLEAR_DETAIL:

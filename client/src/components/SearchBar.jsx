@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 
 
 
-export default function Navbar ({paginado}) {
+export default function SearchBar ({paginado}) {
 
     const dispatch = useDispatch();
     const [searchDog, setSearchDog] = useState('');
