@@ -23,16 +23,16 @@ export default function Detail(props) {
                 </button>
             </Link>
             {
-                myDog.length > 0 ?
+                myDog.name ?
                 <div>
-                    <h1>{myDog[0].name}</h1>
-                    <img src={myDog[0].img ? myDog[0].img : myDog[0].image} alt='#'/>
-                    <h3>Temperaments: {myDog[0].createdInDb? myDog[0].temperament + ' ' : myDog[0].temperament.map(e => e.name + (' '))}</h3>
-                    <h4>Min weight: {myDog[0].weight_min}</h4>
-                    <h4>Max weight: {myDog[0].weight_max}</h4>
-                    <h4>Min height: {myDog[0].height_min}</h4>
-                    <h4>Max height: {myDog[0].height_max}</h4>
-                    <h4>Life span: {myDog[0].life_span}</h4>
+                    <h1>{myDog.name}</h1>
+                    <img src={myDog.img ? myDog.img : myDog.image} alt='#'/>
+                    <h3>Temperaments: {myDog.temperament}</h3>
+                    <h4>Min weight: {myDog.weight_min}</h4>
+                    <h4>Max weight: {myDog.weight_max}</h4>
+                    <h4>Min height: {myDog.height_min}</h4>
+                    <h4>Max height: {myDog.height_max}</h4>
+                    <h4>Life span: {myDog.life_span}</h4>
                 </div> :
                 <p>Loading...</p>
             }
