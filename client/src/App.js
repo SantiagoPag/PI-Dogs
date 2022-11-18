@@ -1,10 +1,9 @@
 import './App.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Home from './components/Home';
-import About from './components/About';
-import LandingPage from './components/LandingPage';
-import Detail from './components/Detail';
-import createDog from './components/DogCreate';
+import Home from './components/Home/Home';
+import LandingPage from './components/LandingPage/LandingPage';
+import Detail from './components/Detail/Detail';
+import CreateDog from './components/DogCreate/DogCreate';
 
 function App() {
   return (
@@ -13,9 +12,8 @@ function App() {
         <Switch>
           <Route exact path={'/'} component={LandingPage}/>
           <Route exact path={'/home'} component={Home}/>
-          <Route exact path={'/about'} component={About}/>
           <Route exact path={'/home/:id'} component={Detail}/>
-          <Route exact path={'/create'} component={createDog}/>
+          <Route exact path={'/create'} component={CreateDog}/>
         </Switch>
       </div>
     </BrowserRouter>

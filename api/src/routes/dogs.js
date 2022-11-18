@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const { getAllDogs } = require('../controllers/Controllers');
-const { Dog } = require('../db');
+const { Dog, Temperament } = require('../db');
 const router = Router();
 
 
@@ -66,14 +66,38 @@ router.post('/', async (req, res) => {
         image
     } = req.body;
 
-    /* const dogCheck = await Dog.findAll({
+    const dogCheck = await Dog.findAll({
         where: { name: name }
     });
 
     if (dogCheck.length) {
         return res.status(404).send('The dog already exist')
-    }  */
-    if (name && height_min && height_max && weight_min && weight_max && life_span && temperament && image) {
+    } else {
+        let createdDog = await Dog.create({
+            name,
+            height_min,
+            height_max,
+            weight_min,
+            weight_max,
+            life_span,
+            createdInDb,
+            image
+        })
+
+        /* let temperamentDb = await Temperament.findAll({
+            where: {name: temperament}
+        }) */         
+
+        temperament.map(async e =>{
+            let temperamentDb = await Temperament.findAll({
+                where: {name: e}
+            })
+            createdDog.addTemperament(temperamentDb)
+        })
+        /* createdDog.addTemperament(temperamentDb) */
+        return res.status(200).send(createdDog);
+    } 
+    /* if (name && height_min && height_max && weight_min && weight_max && life_span && temperament && image) {
         let createDog = await Dog.create({
             name: name,
             height_min: parseInt(height_min),
@@ -82,26 +106,27 @@ router.post('/', async (req, res) => {
             weight_max: parseInt(weight_max),
             life_span: life_span,
             createdInDb: createdInDb,
+            temperament: temperament,
             image: image || 'https://pbs.twimg.com/media/D6mH_epWwAAl8Yn.jpg'
-        });
+        }); */
 
-        let dogDb = await Dog.findAll({where: {name:name}})
+        //let dogDb = await Dog.findAll({where: {name:name}})
 
-        if(!dogDb.length) {
-            createDog()
+        //if(!dogDb.length) {
+           // createDog()
 
-            let temperamentDb = await Temperament.findAll({
+            l/* et temperamentDb = await Temperament.findAll({
                 where: {name: temperament}
             })         
 
-            await createDog.addTemperament(temperamentDb)
-        }
+            await createdDog.addTemperament(temperamentDb)
+        //}
 
         res.status(200).send(createDog);
         
     } else {
         res.status(404).send('Data missing')
-    };
+    }; */
 });
 
 module.exports = router;

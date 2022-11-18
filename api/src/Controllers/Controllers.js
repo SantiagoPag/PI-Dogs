@@ -32,19 +32,23 @@ const getDB = async () => {
             }
         }
     })
+    console.log(dogMap);
 
-    dogMap = dogMap.map(dog => {
+    dogMap = await dogMap.map(dog => {
         return {
             id: dog.id,
             name: dog.name,
-            weight: `${dog.weight_min} - ${dog.weight_max}`,
+            weight_min: `${dog.weight_min}`,
+            weight_max: `${dog.weight_max}`,
             life_span: dog.life_span,
             image: dog.image,
             createdInDb: dog.createdInDb,
-            height: `${dog.height_min} - ${dog.height_max}`,
-            temperament: dog.temperament.map(e => {return e.name}).join(',')
+            height_min: `${dog.height_min}`,
+            height_max: `${dog.height_max}`,
+            temperament: dog.temperaments.map(e => {return e.name}).join(',')
         }
     })
+    console.log(dogMap);
     return dogMap;
 }
 

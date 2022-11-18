@@ -39,7 +39,7 @@ export function getDogName(name) {
 export function getDog(id) {
     return async function (dispatch) {
         try {
-            var json = await axios.get(`http://localhost:3001/dogs${id}`)
+            var json = await axios.get(`http://localhost:3001/dogs/${id}`)
             return dispatch({
                 type: GET_DOG_DETAIL,
                 payload: json.data

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { getDogName } from "../redux/actions";
+import { getDogName } from "../../redux/actions";
 import { useHistory } from "react-router-dom";
 
 

@@ -2,17 +2,17 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { getAllDogs, getTemperaments, filterByName, filterByTemperaments, filterByWeight, filterCreatedDog } from '../redux/actions';
-import Card from './Card';
-import Paginate from './Paginate';
-import SearchBar from './SearchBar';
+import { getAllDogs, getTemperaments, filterByName, filterByTemperaments, filterByWeight, filterCreatedDog } from '../../redux/actions';
+import Card from '../Card/Card';
+import Paginate from '../Paginate/Paginate';
+import SearchBar from '../SearchBar/SearchBar';
 
 
 export default function Home() {
 
     const dispatch = useDispatch();
     const allDogs = useSelector(state => state.dogs);
-    const allTemperaments = useSelector((state) => { return state.temperaments });
+    const allTemperaments = useSelector((state) => state.allTemperaments);
     const [orden, setOrden] = useState('');
 
     const [currentPage, setCurrentPage] = useState(1);
@@ -79,24 +79,24 @@ export default function Home() {
                     <div>
                         <select onChange={e => handlerFilterName(e)}>
                             <option disabled selected defaultValue>Order by name</option>
-                            <option value="A-Z">A-Z</option>
-                            <option value="Z-A">Z-A</option>
+                            <option key={1} value="A-Z">A-Z</option>
+                            <option key={2} value="Z-A">Z-A</option>
                         </select>
 
                         <select onChange={e => handlerFilterWeight(e)}>
                             <option disabled selected defaultValue>Order by weight</option>
-                            <option value="min_weight">Min</option>
-                            <option value="max_weight">Max</option>
+                            <option key={1} value="min_weight">Min</option>
+                            <option key={2} value="max_weight">Max</option>
                         </select>
 
                         <select onChange={e => handlerFilterCreated(e)}>
                             <option disabled selected defaultValue>Order by created</option>
-                            <option value="all">All</option>
-                            <option value="created">Created</option>
-                            <option value="api">Api</option>
+                            <option key={1} value="all">All</option>
+                            <option key={2} value="created">Created</option>
+                            <option key={3} value="api">Api</option>
                         </select>
 
-                        {/* <select onChange={e => handlerFilterTemp(e)}>
+                        <select onChange={e => handlerFilterTemp(e)}>
                             <option disabled selected defaultValue>Temperaments</option>
                             <option key={1 + 'e'} value="All">All</option>
                             {
@@ -104,7 +104,7 @@ export default function Home() {
                                     <option value={temp.name} key={temp.id}>{temp.name}</option>
                                 ))
                             }
-                        </select> */}
+                        </select>
                     </div>
                 </div>
             </header>
