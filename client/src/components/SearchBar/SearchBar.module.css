@@ -1,0 +1,21 @@
+.container {
+  height: 30px;
+  width: 20%;
+}
+
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.searchbar {
+  width: 70%;
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.btn {
+  height: 116%;
+  width: 4rem;
+}

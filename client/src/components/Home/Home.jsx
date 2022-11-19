@@ -75,8 +75,8 @@ export default function Home() {
                     </Link>
                     <button onClick={e => { handleClick(e) }}>Reload Dogs</button>
                 </div>
+                <SearchBar paginado={paginado} />
                 <div className={style.filters}>
-                    <SearchBar paginado={paginado} />
                     <div>
                         <select onChange={e => handlerFilterName(e)}>
                             <option disabled selected defaultValue>Order by name</option>
@@ -112,14 +112,13 @@ export default function Home() {
 
             <Paginate dogsPerPage={dogsPerPage} allDogs={allDogs.length} paginado={paginado} />
 
-            <div>
+            <div className={style.container_cards}>
                 {Object.keys(allDogs).length ?
-                    <div>
+                    <div className={style.cards}>
                         {currentDogs?.map(e => {
                             return (
                                 <div key={e.id}>
-                                    {
-                                        <Link to={`/dogs/${e.id}`}>
+                                    {   
                                         <Card
                                             key={e.id}
                                             id={e.id}
@@ -128,8 +127,7 @@ export default function Home() {
                                             temperament={e.temperament}
                                             weight_min={e.weight_min}
                                             weight_max={e.weight_max}
-                                        />
-                                        </Link>
+                                        /> 
                                     }
                                 </div>
                             )

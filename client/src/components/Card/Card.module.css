@@ -1,0 +1,27 @@
+.card {
+  background-color: aliceblue;
+  width: 800px;
+  height: 300px;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 9px 27px 18px 11px;
+}
+
+.img {
+  margin-left: 2%;
+  align-self: center;
+  width: 200px;
+}
+
+.info {
+  font-size: 15px;
+  display: flex;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  letter-spacing: 1px;
+  word-spacing: 1px;
+  background-color: blanchedalmond;
+  border-color: black;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 550px;
+}

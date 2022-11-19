@@ -6,11 +6,25 @@
   display: flex;
   align-content: flex-start;
   margin-left: 15px;
+  text-shadow: 2px 2px 0 rgba(0,0,0,.3);
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 1.2rem;
+  color: rgb(253, 209, 45);
 }
 
 .filters {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: center;
   margin-left: 15px;
 }
+
+.container_cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* .cards {
+  display: flex;
+} */
