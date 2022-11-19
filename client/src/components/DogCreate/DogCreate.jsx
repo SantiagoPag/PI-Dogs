@@ -235,7 +235,7 @@ export default function CreateDog() {
                     />
                 </div>
                 <div>
-                    <h3>TEMPERAMENTS</h3>
+                    <h4>TEMPERAMENTS</h4>
                     <select onChange={(e) => handleSelect(e)}>
                         {allTemperaments.map((temp) => {
                             return (
@@ -286,61 +286,61 @@ export default function CreateDog() {
             </div>
 
             <div>
-                <h3>ERRORS:</h3>
+                <h4>ERRORS:</h4>
                 <div>
-                    <h3>
+                    <h4>
                         {errors.name && (
                             <p> {errors.name} </p>
                         )}
-                    </h3>
+                    </h4>
 
-                    <h3>
+                    <h4>
                         {errors.height_min && (
                             <p>{errors.height_min}</p>
                         )}
-                    </h3>
+                    </h4>
 
-                    <h3>
+                    <h4>
                         {errors.height_max && (
                             <p>{errors.height_max}</p>
                         )}
-                    </h3>
+                    </h4>
 
-                    <h3>
+                    <h4>
                         {errors.weight_min && (
                             <p>{errors.weight_min}</p>
                         )}
-                    </h3>
+                    </h4>
 
-                    <h3>
+                    <h4>
                         {errors.weight_max && (
                             <p>{errors.weight_max}</p>
                         )}
-                    </h3>
+                    </h4>
 
-                    <h3>
+                    <h4>
                         {errors.life_span && (
                             <p>{errors.life_span}</p>
                         )}
-                    </h3>
+                    </h4>
 
-                    <h3>
+                    <h4>
                         {errors.temperament && (
                             <p>{errors.temperament}</p>
                         )}
-                    </h3>
+                    </h4>
 
-                    <h3>
+                    <h4>
                         {errors.aux && (
                             <p>{errors.aux}</p>
                         )}
-                    </h3>
+                    </h4>
 
-                    <h3>
+                    <h4>
                         {errors.aux2 && (
                             <p>{errors.aux2}</p>
                         )}
-                    </h3>
+                    </h4>
                 </div>
             </div>
         </div>

@@ -6,6 +6,7 @@ import { getAllDogs, getTemperaments, filterByName, filterByTemperaments, filter
 import Card from '../Card/Card';
 import Paginate from '../Paginate/Paginate';
 import SearchBar from '../SearchBar/SearchBar';
+import style from './Home.module.css'
 
 
 export default function Home() {
@@ -61,11 +62,11 @@ export default function Home() {
 
 
     return (
-        <div>       {/* background div */}
+        <div className={style.background}>       {/* background div */}
             <header>
-                <div>
+                <div className={style.title}>
                     <Link to='/'>
-                        <h1>PERROS PI</h1>
+                        <h1>Doggie Wiki</h1>
                     </Link>
                 </div>
                 <div>
@@ -74,7 +75,7 @@ export default function Home() {
                     </Link>
                     <button onClick={e => { handleClick(e) }}>Reload Dogs</button>
                 </div>
-                <div>
+                <div className={style.filters}>
                     <SearchBar paginado={paginado} />
                     <div>
                         <select onChange={e => handlerFilterName(e)}>
@@ -118,6 +119,7 @@ export default function Home() {
                             return (
                                 <div key={e.id}>
                                     {
+                                        <Link to={`/dogs/${e.id}`}>
                                         <Card
                                             key={e.id}
                                             id={e.id}
@@ -127,6 +129,7 @@ export default function Home() {
                                             weight_min={e.weight_min}
                                             weight_max={e.weight_max}
                                         />
+                                        </Link>
                                     }
                                 </div>
                             )

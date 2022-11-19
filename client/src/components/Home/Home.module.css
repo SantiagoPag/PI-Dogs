@@ -1,0 +1,16 @@
+.background {
+  background-color: rgb(253, 209, 45);
+}
+
+.title {
+  display: flex;
+  align-content: flex-start;
+  margin-left: 15px;
+}
+
+.filters {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-left: 15px;
+}

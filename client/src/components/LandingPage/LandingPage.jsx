@@ -8,11 +8,12 @@ export default function LandingPage() {
         <div className={style.background}>
             <div>
                 <div>
-                    <h1>Doggie Wiki</h1>
-                    <h2>Here in Doggie Wiki you can learn different things about dogs</h2>
+                    {/* <img src='./Images/doggie2.png' alt="#" /> */}
+                    <h1 className={style.title}>Doggie Wiki</h1>
+                    <p className={style.description}>Here you can learn different things about dogs</p>
                 </div>
                 <Link to='/home'>
-                    <button className={style.btn}>Enter Wiki</button>
+                    <button className={style.btn}>Enter Wiki!</button>
                 </Link>
             </div>
         </div>

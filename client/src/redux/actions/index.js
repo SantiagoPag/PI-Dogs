@@ -101,7 +101,8 @@ export function filterCreatedDog(payload) {
 
 export function clearDetail() {
     return {
-        type: CLEAR_DETAIL
+        type: CLEAR_DETAIL,
+        payload: []
     }
 };
 
