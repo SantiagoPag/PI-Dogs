@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import { postDog, getTemperaments } from "../../redux/actions";
+import style from './DogCreate.module.css'
 
 
 const validate = (input) => {
@@ -140,31 +141,34 @@ export default function CreateDog() {
     //console.log(allTemperaments);
 
     return (
-        <div>
-            <Link to='/home'><button>Back home</button></Link>
-            <h1>Create dog</h1>
-            <form onSubmit={(e) => handleSubmit(e)}>
-                <div>
-                    <label>NAME:</label>
-                    <input
-                        type="text"
-                        value={input.name}
-                        name='name'
-                        onChange={(e) => handleChange(e)}
-                    />
-                    {/* {errors.name && (
+        <div className={style.background}>
+            <div className={style.background_form}>
+                <div className={style.title}>
+                    <Link className={style.link} to='/home'><button className={style.btn}>Home</button></Link>
+                    <h1>Create a dog!</h1>
+                </div>
+                <form onSubmit={(e) => handleSubmit(e)}>
+                    <div>
+                        <label>Name: </label>
+                        <input
+                            type="text"
+                            value={input.name}
+                            name='name'
+                            onChange={(e) => handleChange(e)}
+                        />
+                        {/* {errors.name && (
                         <p>{errors.name}</p>
                     )} */}
-                </div>
-                <div>
-                    <label>HEIGHT MIN:</label>
-                    <input
-                        type="number"
-                        value={input.height_min}
-                        name='height_min'
-                        onChange={(e) => handleChange(e)}
-                    />
-                    {/* {errors.height_min && (
+                    </div>
+                    <div>
+                        <label>Min. height: </label>
+                        <input
+                            type="number"
+                            value={input.height_min}
+                            name='height_min'
+                            onChange={(e) => handleChange(e)}
+                        />
+                        {/* {errors.height_min && (
                         <p>{errors.height_min}</p>
                     )}
                     {errors.aux && (
@@ -173,174 +177,175 @@ export default function CreateDog() {
                     {errors.height && (
                         <p>{errors.height}</p>
                     )} */}
-                </div>
-                <div>
-                    <label>HEIGHT MAX:</label>
-                    <input
-                        type="number"
-                        value={input.height_max}
-                        name='height_max'
-                        onChange={(e) => handleChange(e)}
-                    />
-                    {/* {errors.height_max && (
+                    </div>
+                    <div>
+                        <label>Max. Height: </label>
+                        <input
+                            type="number"
+                            value={input.height_max}
+                            name='height_max'
+                            onChange={(e) => handleChange(e)}
+                        />
+                        {/* {errors.height_max && (
                         <p>{errors.height_max}</p>
                     )}
                     {errors.height && (
                         <p>{errors.height}</p>
                     )} */}
-                </div>
-                <div>
-                    <label>WEIGHT MIN:</label>
-                    <input
-                        type="number"
-                        value={input.weight_min}
-                        name='weight_min'
-                        onChange={(e) => handleChange(e)}
-                    />
-                    {/* {errors.weight_min && (
+                    </div>
+                    <div>
+                        <label>Min. Weight: </label>
+                        <input
+                            type="number"
+                            value={input.weight_min}
+                            name='weight_min'
+                            onChange={(e) => handleChange(e)}
+                        />
+                        {/* {errors.weight_min && (
                         <p>{errors.weight_min}</p>
                     )}
                     {errors.aux2 && (
                         <p>{errors.aux2}</p>
                     )} */}
-                </div>
-                <div>
-                    <label>WEIGHT MAX:</label>
-                    <input
-                        type="number"
-                        value={input.weight_max}
-                        name='weight_max'
-                        onChange={(e) => handleChange(e)}
-                    />
-                    {/*  {errors.weight_max && (
+                    </div>
+                    <div>
+                        <label>Max. Weight: </label>
+                        <input
+                            type="number"
+                            value={input.weight_max}
+                            name='weight_max'
+                            onChange={(e) => handleChange(e)}
+                        />
+                        {/*  {errors.weight_max && (
                         <p>{errors.weight_max}</p>
                     )} */}
-                </div>
+                    </div>
+                    <div>
+                        <label>Life Span: </label>
+                        <input
+                            type="number"
+                            value={input.life_span}
+                            name='life_span'
+                            onChange={(e) => handleChange(e)}
+                        />
+                    </div>
+                    <div>
+                        <label>Image: </label>
+                        <input
+                            type="text"
+                            value={input.image}
+                            name='image'
+                            onChange={(e) => handleChange(e)}
+                        />
+                    </div>
+                    <div>
+                        <label>Temperaments: </label>
+                        <select onChange={(e) => handleSelect(e)}>
+                            {allTemperaments.map((temp) => {
+                                return (
+                                    <option key={temp.id} value={temp.name}>{temp.name}</option>
+                                )
+                            })}
+                        </select>
+                    </div>
+                    {
+                        errors &&
+                            (errors.name ||
+                                errors.height_min ||
+                                errors.height_max ||
+                                errors.weight_min ||
+                                errors.weight_max ||
+                                errors.aux ||
+                                errors.aux ||
+                                errors.life_span ||
+                                !input.name.length ||
+                                input.height_min <= 0 ||
+                                input.height_max <= 0 ||
+                                input.weight_min <= 0 ||
+                                input.weight_max <= 0 ||
+                                input.life_span <= 0 ||
+                                input.height_min >= input.height_max ||
+                                input.weight_min >= input.weight_max ||
+                                !input.temperament.length)
+                            ?
+
+                            <div>Please complete all fields</div>
+                            :
+                            <div>
+                                <button className={style.submit} type="submit">Create Dog</button>
+                            </div>
+                    }
+                </form>
                 <div>
-                    <label>LIFE SPAN:</label>
-                    <input
-                        type="number"
-                        value={input.life_span}
-                        name='life_span'
-                        onChange={(e) => handleChange(e)}
-                    />
+                    <ul>{input.temperament.map((d, i) => {
+                        return (
+                            <div key={i++}>
+                                <li>{d}</li>
+                                <button onClick={() => handleDelete(d)}>X</button>
+                            </div>
+                        )
+                    })}
+                    </ul>
+                    <button type="button" onClick={(e) => handleReset(e)}>Reset temperaments</button>
                 </div>
+
                 <div>
-                    <label>IMAGE:</label>
-                    <input
-                        type="text"
-                        value={input.image}
-                        name='image'
-                        onChange={(e) => handleChange(e)}
-                    />
-                </div>
-                <div>
-                    <h4>TEMPERAMENTS</h4>
-                    <select onChange={(e) => handleSelect(e)}>
-                        {allTemperaments.map((temp) => {
-                            return (
-                                <option key={temp.id} value={temp.name}>{temp.name}</option>
-                            )
-                        })}
-                    </select>
-                </div>
-                {
-                    errors &&
-                        (errors.name ||
-                            errors.height_min ||
-                            errors.height_max ||
-                            errors.weight_min ||
-                            errors.weight_max ||
-                            errors.aux ||
-                            errors.aux ||
-                            errors.life_span ||
-                            !input.name.length ||
-                            input.height_min <= 0 ||
-                            input.height_max <= 0 ||
-                            input.weight_min <= 0 ||
-                            input.weight_max <= 0 ||
-                            input.life_span <= 0 ||
-                            input.height_min >= input.height_max ||
-                            input.weight_min >= input.weight_max ||
-                            !input.temperament.length)
-                        ?
+                    <h4>Errors:</h4>
+                    <div>
+                        <h4>
+                            {errors.name && (
+                                <p> {errors.name} </p>
+                            )}
+                        </h4>
 
-                        <div>The dog cannot be created</div>
-                        :
-                        <div>
-                            <button type="submit">Create Dog</button>
-                        </div>
-                }
-            </form>
-            <div>
-                <ul>{input.temperament.map((d, i) => {
-                    return (
-                        <div key={i++}>
-                            <li>{d}</li>
-                            <button onClick={() => handleDelete(d)}>X</button>
-                        </div>
-                    )
-                })}
-                </ul>
-                <button type="button" onClick={(e) => handleReset(e)}>Reset temperaments</button>
-            </div>
+                        <h4>
+                            {errors.height_min && (
+                                <p>{errors.height_min}</p>
+                            )}
+                        </h4>
 
-            <div>
-                <h4>ERRORS:</h4>
-                <div>
-                    <h4>
-                        {errors.name && (
-                            <p> {errors.name} </p>
-                        )}
-                    </h4>
+                        <h4>
+                            {errors.height_max && (
+                                <p>{errors.height_max}</p>
+                            )}
+                        </h4>
 
-                    <h4>
-                        {errors.height_min && (
-                            <p>{errors.height_min}</p>
-                        )}
-                    </h4>
+                        <h4>
+                            {errors.weight_min && (
+                                <p>{errors.weight_min}</p>
+                            )}
+                        </h4>
 
-                    <h4>
-                        {errors.height_max && (
-                            <p>{errors.height_max}</p>
-                        )}
-                    </h4>
+                        <h4>
+                            {errors.weight_max && (
+                                <p>{errors.weight_max}</p>
+                            )}
+                        </h4>
 
-                    <h4>
-                        {errors.weight_min && (
-                            <p>{errors.weight_min}</p>
-                        )}
-                    </h4>
+                        <h4>
+                            {errors.life_span && (
+                                <p>{errors.life_span}</p>
+                            )}
+                        </h4>
 
-                    <h4>
-                        {errors.weight_max && (
-                            <p>{errors.weight_max}</p>
-                        )}
-                    </h4>
+                        <h4>
+                            {errors.temperament && (
+                                <p>{errors.temperament}</p>
+                            )}
+                        </h4>
 
-                    <h4>
-                        {errors.life_span && (
-                            <p>{errors.life_span}</p>
-                        )}
-                    </h4>
+                        <h4>
+                            {errors.aux && (
+                                <p>{errors.aux}</p>
+                            )}
+                        </h4>
 
-                    <h4>
-                        {errors.temperament && (
-                            <p>{errors.temperament}</p>
-                        )}
-                    </h4>
-
-                    <h4>
-                        {errors.aux && (
-                            <p>{errors.aux}</p>
-                        )}
-                    </h4>
-
-                    <h4>
-                        {errors.aux2 && (
-                            <p>{errors.aux2}</p>
-                        )}
-                    </h4>
+                        <h4>
+                            {errors.aux2 && (
+                                <p>{errors.aux2}</p>
+                            )}
+                        </h4>
+                    </div>
                 </div>
             </div>
         </div>

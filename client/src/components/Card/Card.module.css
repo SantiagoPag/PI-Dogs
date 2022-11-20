@@ -1,27 +1,54 @@
 .card {
-  background-color: aliceblue;
-  width: 800px;
-  height: 300px;
+  margin: 10px 15px;
+  padding: 8px;
+  width: 400px;
+  height: 470px;
+  border-radius: 12px;
+  box-shadow: 6px 7px 8px -6px rgba(69, 69, 69, 0.7);
+  position: relative;
+  background-color: rgb(253, 209, 45);
+  background-size: cover;
+  background-position: -20px -50%;
+}
+
+.link {
+  text-decoration: none;
+  text-decoration-color: none;
+}
+
+.name {
   display: flex;
-  justify-content: space-between;
-  border-radius: 9px 27px 18px 11px;
+  justify-content: center;
+  text-decoration-color: none;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  color: rgb(250, 164, 51);
+  font-size: 28px;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, .1);
 }
 
 .img {
-  margin-left: 2%;
-  align-self: center;
-  width: 200px;
+  border-radius: 15px;
 }
 
 .info {
-  font-size: 15px;
+  color: #f6a059;
   display: flex;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  letter-spacing: 1px;
-  word-spacing: 1px;
-  background-color: blanchedalmond;
-  border-color: black;
   flex-direction: column;
-  justify-content: space-around;
-  width: 550px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.192);
+  padding: 8px;
+  border-radius: 15px;
+  max-width: 80%;
+  min-height: 25%;
+  margin: 10px;
+  margin-left: 40px;
+}
+
+.temp {
+  margin: 20px 15px;
+  padding: 6px;
+  max-width: 100%;
+  text-align: center;
 }

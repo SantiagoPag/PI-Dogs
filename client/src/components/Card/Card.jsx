@@ -6,13 +6,15 @@ export default function Card({ name, temperament, weight_min, weight_max, image,
     return (
         <div className={style.card}>
             <div className={style.img}>
+                <Link to={`/dogs/${id}`}>
                 <img src={image} alt='#' width='200px' height='250px' />
+                </Link>
             </div>
             <div className={style.info}>
-                <Link to={`/dogs/${id}`}>
-                    <h2>{name}</h2>
+                <Link className={style.link} to={`/dogs/${id}`}>
+                    <h2 className={style.name}>{name}</h2>
                 </Link>
-                <h3>{temperament}</h3>
+                <h4 className={style.temp}>{temperament}</h4>
                 <h4>Min. weight: {weight_min}kg - Max.weight: {weight_max}kg</h4>
             </div>
         </div>

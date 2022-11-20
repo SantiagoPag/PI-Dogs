@@ -64,40 +64,40 @@ export default function Home() {
     return (
         <div className={style.background}>       {/* background div */}
             <header>
-                <div className={style.title}>
-                    <Link to='/'>
+                <div>
+                    {/* <Link to='/create'>
+                        <button className={style.btn_create}>Create your own dog!</button>
+                    </Link> */}
+                    <Link className={style.link_title} to='/'>
                         <h1>Doggie Wiki</h1>
                     </Link>
                 </div>
-                <div>
-                    <Link to='/create'>
-                        <button>Create dog</button>
-                    </Link>
-                    <button onClick={e => { handleClick(e) }}>Reload Dogs</button>
-                </div>
+                <Link to='/create'>
+                    <button className={style.btn_create}>Create your own dog!</button>
+                </Link>
                 <SearchBar paginado={paginado} />
                 <div className={style.filters}>
                     <div>
-                        <select onChange={e => handlerFilterName(e)}>
+                        <select className={style.filter_name} onChange={e => handlerFilterName(e)}>
                             <option disabled selected defaultValue>Order by name</option>
                             <option key={1} value="A-Z">A-Z</option>
                             <option key={2} value="Z-A">Z-A</option>
                         </select>
 
-                        <select onChange={e => handlerFilterWeight(e)}>
+                        <select className={style.filter_weight} onChange={e => handlerFilterWeight(e)}>
                             <option disabled selected defaultValue>Order by weight</option>
                             <option key={1} value="min_weight">Min</option>
                             <option key={2} value="max_weight">Max</option>
                         </select>
 
-                        <select onChange={e => handlerFilterCreated(e)}>
+                        <select className={style.filter_created} onChange={e => handlerFilterCreated(e)}>
                             <option disabled selected defaultValue>Order by created</option>
                             <option key={1} value="all">All</option>
                             <option key={2} value="created">Created</option>
                             <option key={3} value="api">Api</option>
                         </select>
 
-                        <select onChange={e => handlerFilterTemp(e)}>
+                        <select className={style.filter_temp} onChange={e => handlerFilterTemp(e)}>
                             <option disabled selected defaultValue>Temperaments</option>
                             <option key={1 + 'e'} value="All">All</option>
                             {
@@ -106,6 +106,7 @@ export default function Home() {
                                 ))
                             }
                         </select>
+                        <button onClick={e => { handleClick(e) }}>Reload Dogs</button>
                     </div>
                 </div>
             </header>
@@ -118,7 +119,7 @@ export default function Home() {
                         {currentDogs?.map(e => {
                             return (
                                 <div key={e.id}>
-                                    {   
+                                    {
                                         <Card
                                             key={e.id}
                                             id={e.id}
@@ -127,14 +128,14 @@ export default function Home() {
                                             temperament={e.temperament}
                                             weight_min={e.weight_min}
                                             weight_max={e.weight_max}
-                                        /> 
+                                        />
                                     }
                                 </div>
                             )
                         })}
                     </div> :
                     <div>
-                        <h1>LOADING...</h1>
+                        <h1>SEARCHING DOGGIES...</h1>
                     </div>}
 
             </div>
