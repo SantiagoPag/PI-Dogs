@@ -24,7 +24,7 @@ export default function Detail(props) {
     return (
         <div className={style.background}>
             <Link to="/home">
-                <button>
+                <button className={style.btn_home}>
                     Home
                 </button>
             </Link>

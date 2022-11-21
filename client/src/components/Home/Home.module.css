@@ -88,3 +88,21 @@
 .btn_create:hover {
   background-position: right center;
 }
+
+.btn_reload {
+  height: 105%;
+  width: 4.5rem;
+  cursor: pointer;
+  border: none;
+  background: rgb(250, 164, 51);
+  color: #FFF;
+  margin-top: 5px;
+  font-size: 12px;
+}
+
+.btn_reload:hover {
+  background: rgb(239, 153, 40);
+  -webkit-transition: background 0.3s ease-in-out;
+  -moz-transition: background 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
+}

@@ -286,7 +286,7 @@ export default function CreateDog() {
                         )
                     })}
                     </ul>
-                    <button type="button" onClick={(e) => handleReset(e)}>Reset temperaments</button>
+                    <button className={style.reset} type="button" onClick={(e) => handleReset(e)}>Reset temperaments</button>
                 </div>
 
                 <div>

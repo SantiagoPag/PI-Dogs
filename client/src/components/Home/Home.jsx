@@ -106,7 +106,7 @@ export default function Home() {
                                 ))
                             }
                         </select>
-                        <button onClick={e => { handleClick(e) }}>Reload Dogs</button>
+                        <button className={style.btn_reload} onClick={e => { handleClick(e) }}>Reload Dogs</button>
                     </div>
                 </div>
             </header>

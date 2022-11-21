@@ -4,8 +4,26 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  align-items: center;
+  /* align-items: center; */
   min-height: 100vh
+}
+
+.btn_home {
+  cursor: pointer;
+  width: 8%;
+  border: none;
+  background: rgb(250, 164, 51);
+  color: #FFF;
+  padding: 12px;
+  font-size: 20px;
+  margin-top: 30px;
+}
+
+.btn_home:hover {
+  background: rgb(216, 139, 38);
+  -webkit-transition: background 0.3s ease-in-out;
+  -moz-transition: background 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
 }
 
 .card {
@@ -20,6 +38,7 @@
   box-shadow: 6px 7px 8px -6px rgba(69, 69, 69, 0.7);
   border-radius: 15px;
   color: white;
+  margin-left: 590px;
 }
 
 .name {
