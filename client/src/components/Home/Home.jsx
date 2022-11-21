@@ -65,9 +65,6 @@ export default function Home() {
         <div className={style.background}>       {/* background div */}
             <header>
                 <div>
-                    {/* <Link to='/create'>
-                        <button className={style.btn_create}>Create your own dog!</button>
-                    </Link> */}
                     <Link className={style.link_title} to='/'>
                         <h1>Doggie Wiki</h1>
                     </Link>
