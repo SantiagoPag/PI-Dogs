@@ -40,16 +40,6 @@ router.get('/:id', async (req, res) => {
     } catch (error) {
         return res.status(404).send(error)
     }
-    /* try {
-        const dogId = allDogs.filter(dog => dog.id === id)
-        if(dogId.length) {
-            return res.status(200).send(dogId)
-        } else {
-            return res.status(404).send({error: 'No doggie here'})
-        }
-    } catch (error) {
-        return res.status(404).send(error.message)
-    } */
 });
 
 
@@ -84,49 +74,15 @@ router.post('/', async (req, res) => {
             image
         })
 
-        /* let temperamentDb = await Temperament.findAll({
-            where: {name: temperament}
-        }) */         
-
-        temperament.map(async e =>{
+        temperament.map(async e => {
             let temperamentDb = await Temperament.findAll({
-                where: {name: e}
+                where: { name: e }
             })
             createdDog.addTemperament(temperamentDb)
         })
         /* createdDog.addTemperament(temperamentDb) */
         return res.status(200).send(createdDog);
-    } 
-    /* if (name && height_min && height_max && weight_min && weight_max && life_span && temperament && image) {
-        let createDog = await Dog.create({
-            name: name,
-            height_min: parseInt(height_min),
-            height_max: parseInt(height_max),
-            weight_min: parseInt(weight_min),
-            weight_max: parseInt(weight_max),
-            life_span: life_span,
-            createdInDb: createdInDb,
-            temperament: temperament,
-            image: image || 'https://pbs.twimg.com/media/D6mH_epWwAAl8Yn.jpg'
-        }); */
-
-        //let dogDb = await Dog.findAll({where: {name:name}})
-
-        //if(!dogDb.length) {
-           // createDog()
-
-            l/* et temperamentDb = await Temperament.findAll({
-                where: {name: temperament}
-            })         
-
-            await createdDog.addTemperament(temperamentDb)
-        //}
-
-        res.status(200).send(createDog);
-        
-    } else {
-        res.status(404).send('Data missing')
-    }; */
+    }
 });
 
 module.exports = router;

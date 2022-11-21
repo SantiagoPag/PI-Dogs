@@ -38,12 +38,15 @@
   justify-content: flex-start;
   align-items: center;
   background-color: rgba(255, 255, 255, 0.192);
-  padding: 8px;
+  /* padding: 1px; */
   border-radius: 15px;
   max-width: 80%;
   min-height: 25%;
   margin: 10px;
   margin-left: 40px;
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 14.5px;
 }
 
 .temp {

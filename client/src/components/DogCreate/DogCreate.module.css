@@ -65,13 +65,14 @@
 .btn {
   display: flex;
   cursor: pointer;
-  width: 15%;
   border: none;
   background: rgb(250, 164, 51);
   color: #FFF;
   margin: 0 0 5px;
   padding: 10px;
   font-size: 20px;
+  box-sizing: border-box;
+  width: 15%;
 }
 
 .btn:hover {

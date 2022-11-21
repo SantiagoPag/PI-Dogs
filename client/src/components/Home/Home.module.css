@@ -27,6 +27,9 @@
   text-decoration-color: none;
   margin-bottom: 10px;
   padding-top: 40px;
+  box-sizing: content-box;
+  width: 16%;
+  height: 10%;
 }
 
 .filters {
