@@ -9,6 +9,7 @@ export const FILTER_BY_TEMPERAMENTS = 'FILTER_BY_TEMPERAMENTS';
 export const FILTER_BY_WEIGHT = 'FILTER_BY_WEIGHT';
 export const FILTER_CREATED_DOG = 'FILTER_CREATED_DOG';
 export const CLEAR_DETAIL = 'CLEAR_DETAIL';
+export const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE'
 
 
 
@@ -103,6 +104,13 @@ export function clearDetail() {
     return {
         type: CLEAR_DETAIL,
         payload: []
+    }
+};
+
+export const setCurrentPage = (page) => {
+    return {
+        type: SET_CURRENT_PAGE,
+        payload: page
     }
 };
 

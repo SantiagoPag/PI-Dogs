@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { getAllDogs, getTemperaments, filterByName, filterByTemperaments, filterByWeight, filterCreatedDog } from '../../redux/actions';
+import { getAllDogs, getTemperaments, filterByName, filterByTemperaments, filterByWeight, filterCreatedDog, setCurrentPage } from '../../redux/actions';
 import Card from '../Card/Card';
 import Paginate from '../Paginate/Paginate';
 import SearchBar from '../SearchBar/SearchBar';
@@ -16,7 +16,8 @@ export default function Home() {
     const allTemperaments = useSelector((state) => state.allTemperaments);
     const [orden, setOrden] = useState('');
 
-    const [currentPage, setCurrentPage] = useState(1);
+    const currentPage = useSelector(state => state.page);
+    /* const [currentPage, setCurrentPage] = useState(1); */
     const [dogsPerPage, setDogsPerPage] = useState(8);
     const indexLastDog = currentPage * dogsPerPage;
     const indexFirstDog = indexLastDog - dogsPerPage;
@@ -34,30 +35,30 @@ export default function Home() {
     }
 
     const paginado = pageNumber => {
-        setCurrentPage(pageNumber)
+        dispatch(setCurrentPage(pageNumber))
     }
 
     function handlerFilterName(e) {
         dispatch(filterByName(e.target.value))
-        setCurrentPage(1)
+        dispatch(setCurrentPage(1))
         setOrden(`Ordenado ${e.target.value}`)
     }
 
     function handlerFilterWeight(e) {
         dispatch(filterByWeight(e.target.value))
-        setCurrentPage(1)
+        dispatch(setCurrentPage(1))
         setOrden(`Ordenado ${e.target.value}`)
     }
 
     function handlerFilterCreated(e) {
         dispatch(filterCreatedDog(e.target.value))
-        setCurrentPage(1)
+        dispatch(setCurrentPage(1))
     }
 
     function handlerFilterTemp(e) {
         e.preventDefault()
         dispatch(filterByTemperaments(e.target.value))
-        setCurrentPage(1)
+        dispatch(setCurrentPage(1))
     }
 
 

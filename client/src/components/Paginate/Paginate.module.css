@@ -10,20 +10,31 @@
   padding: 0.3rem;
 }
 
-.list>button {
+.btn {
   cursor: pointer;
   border-radius: 30px;
-  border: beige;
+  border: none;
   display: inline-block;
   padding: 6px 10px;
 }
 
-.list>button:hover {
+.btn:hover {
   opacity: 0.9;
   background-color: #f6a059;
 }
 
-.list>button:active {
+.btn:active {
   position: relative;
   top: 1px;
 }
+
+.active {
+  cursor: pointer;
+  border-radius: 30px;
+  opacity: 0.9;
+  background-color: #f6a059;
+  display: inline-block;
+  padding: 6px 10px;
+  border: none;
+}
+

@@ -8,7 +8,8 @@ import {
     FILTER_BY_TEMPERAMENTS,
     FILTER_BY_WEIGHT,
     FILTER_CREATED_DOG,
-    CLEAR_DETAIL
+    CLEAR_DETAIL,
+    SET_CURRENT_PAGE
 } from '../actions/index'
 
 
@@ -16,7 +17,8 @@ const initialState = {
     allDogs: [],
     dogs: [],
     dogDetail: [],
-    allTemperaments: []
+    allTemperaments: [],
+    page: 1
 }
 
 function rootReducer(state = initialState, action) {
@@ -106,6 +108,12 @@ function rootReducer(state = initialState, action) {
             return {
                 ...state,
                 dogDetail: action.payload
+            };
+
+        case SET_CURRENT_PAGE:
+            return {
+                ...state,
+                page: action.payload
             };
 
         default:
